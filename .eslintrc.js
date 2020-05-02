@@ -23,7 +23,7 @@ module.exports = {
 
     "import/default": "off",
     "import/order": "off",
-    "import/no-duplicates": "error",
+    "import/no-duplicates": "off",
     "import/no-named-as-default": "off",
     "import/no-named-as-default-member": "off",
     "import/no-unresolved": "off",

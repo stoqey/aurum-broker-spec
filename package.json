@@ -9,10 +9,10 @@
     "start": "node build/index.js",
     "build": "rm -rf build && tsc",
     "test": "NODE_ENV=test mocha src/*test.ts --exit",
-    "eslint": "eslint . --fix --ext=ts"
+    "eslint": "eslint src --fix --ext=ts"
   },
   "lint-staged": {
-    "./**/*.{ts}": [
+    "./src/**/*.ts": [
       "yarn eslint"
     ]
   },
@@ -27,6 +27,8 @@
     "@types/lodash": "^4.14.149",
     "@types/mocha": "^7.0.2",
     "@types/node": "^12.0.8",
+    "@typescript-eslint/eslint-plugin": "^2.30.0",
+    "@typescript-eslint/parser": "^2.30.0",
     "chai": "^4.2.0",
     "eslint": "^6.8.0",
     "eslint-config-prettier": "^6.11.0",

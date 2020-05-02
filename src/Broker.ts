@@ -10,7 +10,7 @@ export interface BrokerEvents {
     onPriceUpdate: (data: any) => Promise<any>;
 }
 
-export type BROKEREVENTS = keyof BrokerEvents;
+export type BrokerEventTypes = keyof BrokerEvents;
 
 export interface BrokerMethods {
     // Portfolio
@@ -36,7 +36,9 @@ export class Broker implements BrokerMethods {
     /**
      * subscribe
      */
-    public sub(event: BROKEREVENTS, response: (data: any) => Promise<any | void | null>): void {
+    public sub(event: BrokerEventTypes, response: (data: any) => Promise<any | void | null>): void {
         this.events[event] = response;
     }
 }
+
+export default Broker;

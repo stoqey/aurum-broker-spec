@@ -1,1 +1,1 @@
-export * from './broker.interface';
+export * from './Broker';

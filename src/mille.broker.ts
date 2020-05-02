@@ -1,5 +1,5 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
-import { Broker, BrokerMethods } from "./broker.interface";
+import { Broker, BrokerMethods } from "./Broker";
 import { isTest } from "./config";
 
 export class MilleBroker extends Broker implements BrokerMethods {
