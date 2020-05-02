@@ -1,12 +1,3 @@
-export enum BROKEREVENTS {
-    onPortfolios = 'onPortfolios',
-    onTrade = 'onTrade', 
-    onMarketData = 'onMarketData',
-    onPriceUpdate = 'onPriceUpdate'
-}
-
-export type BrokerEventsTypes = keyof typeof BROKEREVENTS;
-
 export interface BrokerEvents {
     // portfolios
     onPortfolios: (portfolios: any[]) => Promise<any>;
@@ -19,6 +10,8 @@ export interface BrokerEvents {
     onPriceUpdate: (data: any) => Promise<any>;
 }
 
+export type BROKEREVENTS = keyof BrokerEvents;
+
 export interface BrokerMethods {
     // Portfolio
     getAllPositions: () => Promise<any>;
@@ -27,14 +20,14 @@ export interface BrokerMethods {
 
     // Symbol
     searchSymbol: (symbol: string, symbolType: string) => Promise<any | null>;
-    quoteSymbol: (symbol: string, symbolType: string) =>  Promise<any | null>;
+    quoteSymbol: (symbol: string, symbolType: string) => Promise<any | null>;
     getMarketData: (symbol: string, symbolType: string) => Promise<any | null>;
     getPriceUpdate: (symbol: string, symbolType: string) => Promise<any | null>;
 }
 
 // @ts-ignore
 export class Broker implements BrokerMethods {
-    
+
     events: BrokerEvents = {} as any;
 
     constructor() {
@@ -43,7 +36,7 @@ export class Broker implements BrokerMethods {
     /**
      * subscribe
      */
-    public sub(event: BrokerEventsTypes, response: (data: any) => Promise<any | void | null>): void {
+    public sub(event: BROKEREVENTS, response: (data: any) => Promise<any | void | null>): void {
         this.events[event] = response;
     }
 }
