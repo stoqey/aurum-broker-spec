@@ -1,6 +1,11 @@
 export interface BrokerEvents {
+    // onReady
+    onReady: (data: any) => Promise<any>;
+
     // portfolios
     onPortfolios: (portfolios: any[]) => Promise<any>;
+
+    // order/trade
     onTrade: (trade: any) => Promise<any>
 
     // symbols
@@ -13,6 +18,13 @@ export interface BrokerEvents {
 export type BrokerEventTypes = keyof BrokerEvents;
 
 export interface BrokerMethods {
+    // Account details
+    getAccountSummary: () => Promise<any>;
+
+    // Orders
+    getAllOrders: () => Promise<any>;
+    getOpenOrders: () => Promise<any>;
+
     // Portfolio
     getAllPositions: () => Promise<any>;
     enterPosition: (portfolio: any[]) => Promise<any | null>;
