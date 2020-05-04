@@ -5,10 +5,10 @@ export interface BrokerEvents {
     // portfolios
     onPortfolios: (portfolios: any[]) => Promise<any>;
 
-    // order/trade
-    onTrade: (trade: any) => Promise<any>
+    // order for buy/sell trades
+    onOrder: (order: any) => Promise<any>;
 
-    // symbols
+    // symbol historical data
     onMarketData: (data: any) => Promise<any>;
 
     // onPriceUpdates
@@ -45,10 +45,7 @@ export class Broker implements BrokerMethods {
     constructor() {
     }
 
-    /**
-     * subscribe
-     */
-    public sub(event: BrokerEventTypes, response: (data: any) => Promise<any | void | null>): void {
+    public when(event: BrokerEventTypes, response: (data: any) => Promise<any | void | null>): void {
         this.events[event] = response;
     }
 }

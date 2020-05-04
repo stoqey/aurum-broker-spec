@@ -1,6 +1,7 @@
 {
   "name": "@stoqey/aurum-broker-spec",
-  "version": "0.0.1",
+  "description": "API Spec for implementing any broker with AURUM",
+  "version": "0.0.3",
   "private": false,
   "main": "build/index.js",
   "types": "build/index.d.ts",
