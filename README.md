@@ -1,9 +1,15 @@
-# AURUM BROKER SPEC
+<h1 align="center">AURUM BROKER SPEC</h1>
 
+![](docs/gold-coin.png)
+
+
+<p align="center">
 This is for any one that wants to create a Broker provider for Aurum, you can also use it as a guide when using any aurum-based broker.
+</p>
 
-
-## For All Aurum Brokers
+Features:
+- Broker events
+- Broker methods
 
 ### BROKER EVENTS
 
