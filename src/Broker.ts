@@ -1,3 +1,5 @@
+import { BrokerAccountSummary } from "./interfaces";
+
 export interface BrokerEvents {
     // onReady
     onReady: (data: any) => Promise<any>;
@@ -19,7 +21,7 @@ export type BrokerEventTypes = keyof BrokerEvents;
 
 export interface BrokerMethods {
     // Account details
-    getAccountSummary: () => Promise<any>;
+    getAccountSummary: () => Promise<BrokerAccountSummary>;
 
     // Orders
     getAllOrders: () => Promise<any>;
