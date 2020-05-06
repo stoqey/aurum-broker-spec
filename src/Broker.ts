@@ -1,5 +1,4 @@
-import { BrokerAccountSummary } from "./interfaces";
-
+import { BrokerAccountSummary } from './interfaces';
 export interface BrokerEvents {
     // onReady
     onReady: (data: any) => Promise<any>;
@@ -40,7 +39,7 @@ export interface BrokerMethods {
 }
 
 // @ts-ignore
-export class Broker implements BrokerMethods {
+export class Broker {
 
     events: BrokerEvents = {} as any;
 
