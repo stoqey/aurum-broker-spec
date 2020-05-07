@@ -27,7 +27,7 @@ export class MilleBroker extends Broker implements BrokerMethods {
         return {}
     }
 
-    public async enterPosition(portfolio: any[]): Promise<any> {
+    public async enterPosition<T>(portfolio: T[]): Promise<T> {
         return null;
     }
 
