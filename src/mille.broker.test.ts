@@ -10,6 +10,13 @@ describe('Mille broker demo', () => {
             console.log('data is', data);
             done();
         });
+
+        // milleBroker.enterPosition({
+        //     symbol: "",
+        //     position: 0,
+        //     costPrice: 0,
+        //     marketPrice: 0
+        // })
     })
 
 })
