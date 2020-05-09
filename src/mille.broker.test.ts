@@ -6,7 +6,7 @@ const milleBroker = new MilleBroker();
 describe('Mille broker demo', () => {
 
     it(`Fake trade `, (done) => {
-        milleBroker.when("onOrder", async (data: any) => {
+        milleBroker.when("onOrders", async (data: any) => {
             console.log('data is', data);
             done();
         });

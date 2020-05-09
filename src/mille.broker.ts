@@ -13,8 +13,8 @@ export class MilleBroker extends Broker implements BrokerMethods {
             // eslint-disable-next-line @typescript-eslint/no-this-alias
             const self = this;
             setInterval(() => {
-                const onOrder = self.events["onOrder"];
-                onOrder([{
+                const onOrders = self.events["onOrders"];
+                onOrders([{
                     filled: 0,
                     remaining: 0,
                     avgFillPrice: 0,
