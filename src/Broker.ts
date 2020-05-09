@@ -27,10 +27,10 @@ export interface BrokerEvents {
     onReady: (started: boolean) => Promise<any>;
 
     // portfolios
-    onPortfolios: <T>(portfolio: T & Portfolio[]) => Promise<any>;
+    onPortfolios: (portfolios: any) => Promise<any>;
 
     // order for buy/sell trades
-    onOrder: <T>(order: T & OpenOrder[]) => Promise<any>;
+    onOrders: (orders: any) => Promise<any>;
 
     // symbol historical data
     onMarketData: (data: any) => Promise<any>;
