@@ -1,7 +1,6 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
 import { Broker, BrokerMethods } from "./Broker";
 import { isTest } from "./config";
-import { GetMarketData, Portfolio } from './interfaces';
 
 export class MilleBroker extends Broker implements BrokerMethods {
 
@@ -20,36 +19,4 @@ export class MilleBroker extends Broker implements BrokerMethods {
         }
 
     }
-    getAccountSummary: () => Promise<any>;
-    getAllOrders: () => Promise<any>;
-    getOpenOrders: () => Promise<any>;
-
-    public async getAllPositions<T>(): Promise<Portfolio & T> {
-        return null;
-    }
-
-    public async enterPosition<T>(portfolio: Portfolio & T): Promise<Portfolio & T> {
-        return null;
-    }
-
-    public async exitPosition<T>(portfolio: Portfolio & T): Promise<Portfolio & T> {
-        return null;
-    }
-
-    public async searchSymbol(symbol: string, symbolType: string): Promise<any> {
-        return null;
-
-    }
-    public async quoteSymbol(symbol: string, symbolType: string): Promise<any> {
-        return null;
-    }
-
-    public async getMarketData(symbol: string, symbolType: string): Promise<any> {
-        return null;
-    }
-
-    public async getPriceUpdate(symbol: string, symbolType: string): Promise<any> {
-        return null;
-    };
-
 }

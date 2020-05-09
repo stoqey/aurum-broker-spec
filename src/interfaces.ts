@@ -1,3 +1,4 @@
+// export default namespace Broker
 export type BrokerAccountSummary = {
     accountId: string,
     totalCashValue: number
@@ -7,11 +8,11 @@ export type BrokerAccountSummary = {
  * SI
  * Symbol Info
  */
-interface SI {
+export interface SI {
     symbol: string;
     symbolType?: string;
 }
-export interface GetMarketData extends SI {
+export interface GetSymbolData extends SI {
     startDate: Date;
     endDate?: Date;
     [x: string]: any;
