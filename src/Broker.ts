@@ -5,7 +5,6 @@ export interface BrokerMethods {
     getAccountSummary: () => Promise<BrokerAccountSummary>;
 
     // Orders
-    // getAllOrders: () => Promise<any>;
     getOpenOrders: <T>() => Promise<OpenOrder & T[]>;
 
     // Positions
