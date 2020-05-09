@@ -1,22 +1,4 @@
 import { BrokerAccountSummary, GetSymbolData, Portfolio, SI, OpenOrder } from './interfaces';
-export interface BrokerEvents {
-    // onReady
-    onReady: (data: any) => Promise<any>;
-
-    // portfolios
-    onPortfolios: (portfolios: any[]) => Promise<any>;
-
-    // order for buy/sell trades
-    onOrder: (order: any) => Promise<any>;
-
-    // symbol historical data
-    onMarketData: (data: any) => Promise<any>;
-
-    // onPriceUpdates
-    onPriceUpdate: (data: any) => Promise<any>;
-}
-
-export type BrokerEventTypes = keyof BrokerEvents;
 
 export interface BrokerMethods {
     // Account details
@@ -40,6 +22,25 @@ export interface BrokerMethods {
     getPriceUpdate: <T>(args: GetSymbolData & T) => Promise<any>;
 
 }
+
+export interface BrokerEvents {
+    // onReady
+    onReady: (started: boolean) => Promise<any>;
+
+    // portfolios
+    onPortfolios: <T>(portfolio: T & Portfolio[]) => Promise<any>;
+
+    // order for buy/sell trades
+    onOrder: <T>(order: T & OpenOrder[]) => Promise<any>;
+
+    // symbol historical data
+    onMarketData: (data: any) => Promise<any>;
+
+    // onPriceUpdates
+    onPriceUpdate: (data: any) => Promise<any>;
+}
+
+export type BrokerEventTypes = keyof BrokerEvents;
 
 export class Broker {
 

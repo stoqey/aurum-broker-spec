@@ -11,12 +11,17 @@ describe('Mille broker demo', () => {
             done();
         });
 
-        // milleBroker.enterPosition({
-        //     symbol: "",
-        //     position: 0,
-        //     costPrice: 0,
-        //     marketPrice: 0
-        // })
+        milleBroker.when("onPortfolios", async (data: any) => {
+            console.log('data is', data);
+            done();
+        });
+
+        milleBroker.enterPosition({
+            symbol: "",
+            position: 0,
+            marketPrice: 0,
+            averageCost: 0
+        })
     })
 
 })

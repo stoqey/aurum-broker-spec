@@ -25,7 +25,7 @@ export interface Portfolio extends SI {
     [x: string]: any;
 }
 
-export interface OrderStatus {
+export interface OpenOrder {
     // status,
     filled: number;
     remaining: number;
