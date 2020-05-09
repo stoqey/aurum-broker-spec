@@ -1,4 +1,4 @@
-import { BrokerAccountSummary, GetSymbolData, Portfolio, SI } from './interfaces';
+import { BrokerAccountSummary, GetSymbolData, Portfolio, SI, OpenOrder } from './interfaces';
 export interface BrokerEvents {
     // onReady
     onReady: (data: any) => Promise<any>;
@@ -23,8 +23,8 @@ export interface BrokerMethods {
     getAccountSummary: () => Promise<BrokerAccountSummary>;
 
     // Orders
-    getAllOrders: () => Promise<any>;
-    getOpenOrders: () => Promise<any>;
+    // getAllOrders: () => Promise<any>;
+    getOpenOrders: <T>() => Promise<OpenOrder & T[]>;
 
     // Positions
     getAllPositions: <T>() => Promise<Portfolio & T[]>;
@@ -32,7 +32,7 @@ export interface BrokerMethods {
     exitPosition: <T>(portfolio: Portfolio & T) => Promise<Portfolio & T>;
 
     // Symbol
-    searchSymbol: <T>(args: SI & T) => Promise<SI & T>;
+    searchSymbol: <T>(args: SI & T) => Promise<SI & T[]>;
     quoteSymbol: <T>(args: SI & T) => Promise<SI & T>;
 
     // MarketData
@@ -41,7 +41,6 @@ export interface BrokerMethods {
 
 }
 
-// @ts-ignore
 export class Broker {
 
     events: BrokerEvents = {} as any;

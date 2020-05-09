@@ -20,7 +20,16 @@ export interface GetSymbolData extends SI {
 
 export interface Portfolio extends SI {
     position: number;
-    costPrice: number;
+    averageCost: number;
     marketPrice: number;
+    [x: string]: any;
+}
+
+export interface OrderStatus {
+    // status,
+    filled: number;
+    remaining: number;
+    avgFillPrice: number;
+    lastFillPrice?: number;
     [x: string]: any;
 }
