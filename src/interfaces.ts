@@ -13,7 +13,7 @@ export interface SymbolInfo {
     symbolType?: string;
 }
 export interface GetSymbolData extends SymbolInfo {
-    startDate: Date;
+    startDate?: Date;
     endDate?: Date;
     [x: string]: any;
 }
@@ -25,7 +25,7 @@ export interface Portfolio extends SymbolInfo {
     [x: string]: any;
 }
 
-export interface OpenOrder {
+export interface OpenOrder extends SymbolInfo {
     // status,
     filled: number;
     remaining: number;
