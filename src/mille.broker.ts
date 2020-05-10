@@ -1,8 +1,38 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
-import { Broker, BrokerMethods } from "./Broker";
+import Broker from "./Broker";
+import { BrokerAccountSummary, GetSymbolData, Portfolio, SymbolInfo, OpenOrder } from './interfaces';
+
 import { isTest } from "./config";
 
-export class MilleBroker extends Broker implements BrokerMethods {
+export class MilleBroker extends Broker {
+    public getAllPositions<T>(): Promise<Portfolio & T[]> {
+        throw new Error("Method not implemented.");
+    }
+    public enterPosition<T>(portfolio: Portfolio & T): Promise<Portfolio & T> {
+        throw new Error("Method not implemented.");
+    }
+    public exitPosition<T>(portfolio: Portfolio & T): Promise<Portfolio & T> {
+        throw new Error("Method not implemented.");
+    }
+    public searchSymbol<T>(args: SymbolInfo & T): Promise<SymbolInfo & T[]> {
+        throw new Error("Method not implemented.");
+    }
+    public quoteSymbol<T>(args: SymbolInfo & T): Promise<SymbolInfo & T> {
+        throw new Error("Method not implemented.");
+    }
+    public getMarketData<T>(args: GetSymbolData & T): Promise<any> {
+        throw new Error("Method not implemented.");
+    }
+    public getPriceUpdate<T>(args: GetSymbolData & T): Promise<any> {
+        throw new Error("Method not implemented.");
+    }
+
+    public getAccountSummary(): Promise<BrokerAccountSummary> {
+        throw new Error("Method not implemented.");
+    }
+    public getOpenOrders<T>(): Promise<OpenOrder & T[]> {
+        throw new Error("Method not implemented.");
+    }
 
     // events = {} as any;
 
@@ -25,13 +55,8 @@ export class MilleBroker extends Broker implements BrokerMethods {
         }
 
     }
-    getAccountSummary: () => Promise<import("./interfaces").BrokerAccountSummary>;
-    getOpenOrders: <T>() => Promise<import("./interfaces").OpenOrder & T[]>;
-    getAllPositions: <T>() => Promise<import("./interfaces").Portfolio & T[]>;
-    enterPosition: <T>(portfolio: import("./interfaces").Portfolio & T) => Promise<import("./interfaces").Portfolio & T>;
-    exitPosition: <T>(portfolio: import("./interfaces").Portfolio & T) => Promise<import("./interfaces").Portfolio & T>;
-    searchSymbol: <T>(args: import("./interfaces").SI & T) => Promise<import("./interfaces").SI & T[]>;
-    quoteSymbol: <T>(args: import("./interfaces").SI & T) => Promise<import("./interfaces").SI & T>;
-    getMarketData: <T>(args: import("./interfaces").GetSymbolData & T) => Promise<any>;
-    getPriceUpdate: <T>(args: import("./interfaces").GetSymbolData & T) => Promise<any>;
+
+
+
+
 }

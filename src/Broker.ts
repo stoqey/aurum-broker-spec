@@ -1,26 +1,4 @@
-import { BrokerAccountSummary, GetSymbolData, Portfolio, SI, OpenOrder } from './interfaces';
-
-export interface BrokerMethods {
-    // Account details
-    getAccountSummary: () => Promise<BrokerAccountSummary>;
-
-    // Orders
-    getOpenOrders: <T>() => Promise<OpenOrder & T[]>;
-
-    // Positions
-    getAllPositions: <T>() => Promise<Portfolio & T[]>;
-    enterPosition: <T>(portfolio: Portfolio & T) => Promise<Portfolio & T>;
-    exitPosition: <T>(portfolio: Portfolio & T) => Promise<Portfolio & T>;
-
-    // Symbol
-    searchSymbol: <T>(args: SI & T) => Promise<SI & T[]>;
-    quoteSymbol: <T>(args: SI & T) => Promise<SI & T>;
-
-    // MarketData
-    getMarketData: <T>(args: GetSymbolData & T) => Promise<any>;
-    getPriceUpdate: <T>(args: GetSymbolData & T) => Promise<any>;
-
-}
+import { BrokerAccountSummary, GetSymbolData, Portfolio, SymbolInfo, OpenOrder } from './interfaces';
 
 export interface BrokerEvents {
     // onReady
@@ -41,12 +19,21 @@ export interface BrokerEvents {
 
 export type BrokerEventTypes = keyof BrokerEvents;
 
-export class Broker {
+export abstract class Broker {
 
     events: BrokerEvents = {} as any;
 
     constructor() {
     }
+    public abstract getAccountSummary(): Promise<BrokerAccountSummary>;
+    public abstract getOpenOrders<T>(): Promise<OpenOrder & T[]>;
+    public abstract getAllPositions<T>(): Promise<Portfolio & T[]>;
+    public abstract enterPosition<T>(portfolio: Portfolio & T): Promise<Portfolio & T>;
+    public abstract exitPosition<T>(portfolio: Portfolio & T): Promise<Portfolio & T>;
+    public abstract searchSymbol<T>(args: SymbolInfo & T): Promise<SymbolInfo & T[]>;
+    public abstract quoteSymbol<T>(args: SymbolInfo & T): Promise<SymbolInfo & T>;
+    public abstract getMarketData<T>(args: GetSymbolData & T): Promise<any>;
+    public abstract getPriceUpdate<T>(args: GetSymbolData & T): Promise<any>;
 
     public when(event: BrokerEventTypes, response: (data: any) => Promise<any | void | null>): void {
         this.events[event] = response;

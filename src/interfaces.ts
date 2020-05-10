@@ -8,17 +8,17 @@ export type BrokerAccountSummary = {
  * SI
  * Symbol Info
  */
-export interface SI {
+export interface SymbolInfo {
     symbol: string;
     symbolType?: string;
 }
-export interface GetSymbolData extends SI {
+export interface GetSymbolData extends SymbolInfo {
     startDate: Date;
     endDate?: Date;
     [x: string]: any;
 }
 
-export interface Portfolio extends SI {
+export interface Portfolio extends SymbolInfo {
     position: number;
     averageCost: number;
     marketPrice: number;
