@@ -1,6 +1,17 @@
 <h1 align="center">AURUM BROKER SPEC</h1>
 
-![](docs/gold-coin.png)
+<p align="center">
+<img src="./docs/gold_.png"></img>
+</p>
+
+<p align="center">
+<a href="https://www.npmjs.com/package/@stoqey/aurum-broker-spec">
+<img alt="NPM" src="https://img.shields.io/npm/dt/@stoqey/aurum-broker-spec.svg"></img>
+</a>
+
+</p>
+
+ 
 
 
 <p align="center">
