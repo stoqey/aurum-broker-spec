@@ -74,8 +74,8 @@ onPriceUpdate: (data: any) => Promise<any>;
 
 
 ## Current implementations
-- [Interactive brokers]()
-- [Mille paper trade broker]()
+- [Interactive brokers](https://github.com/stoqey/aurum-broker-ibkr)
+- [Mille paper trading broker](https://github.com/stoqey/aurum-broker-mille)
 
 
 
