@@ -22,7 +22,22 @@ Features:
 - Broker events
 - Broker methods
 
-### BROKER EVENTS
+## Broker methods
+
+| Method            | Description                                                                                                                   |
+| ----------------- | ----------------------------------------------------------------------------------------------------------------------------- |
+| init              | Important method called to start start the broker, it's recommended to call this method after all events have been registered |
+| getAccountSummary | should return account details like accountId, account balance e.t.c                                                           |
+| getOpenOrders     | Get all open order, not including  filled orders                                                                              |
+| getAllPositions   | Get all portfolios that are currently invested in                                                                             |
+| enterPosition     | Start a new position/portfolio                                                                                                |
+| exitPosition      | Exit an existing position                                                                                                     |
+| searchSymbol      | Search for a symbol                                                                                                           |
+| quoteSymbol       | Get quote                                                                                                                     |
+| getMarketData     | Get historical data                                                                                                           |
+| getPriceUpdate    | Get realtime price updates                                                                                                    |
+
+## Broker events
 
 #### **onReady** 
 this method should be called when broker is ready to accept/process requests.
@@ -58,4 +73,10 @@ onPriceUpdate: (data: any) => Promise<any>;
 ``` 
 
 
-<!-- TODO add Methods -->
+## Current implementations
+- [Interactive brokers]()
+- [Mille paper trade broker]()
+
+
+
+STOQEY INC
