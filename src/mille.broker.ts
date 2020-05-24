@@ -5,6 +5,10 @@ import { BrokerAccountSummary, GetSymbolData, Portfolio, SymbolInfo, OpenOrder }
 import { isTest } from "./config";
 
 export class MilleBroker extends Broker {
+    public getScreener(): <T>(args: any) => Promise<import("./interfaces").MosaicData & T[]> {
+        throw new Error("Method not implemented.");
+    }
+
     public getAllPositions<T>(): Promise<Portfolio & T[]> {
         throw new Error("Method not implemented.");
     }
