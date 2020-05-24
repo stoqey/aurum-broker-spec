@@ -76,8 +76,7 @@ onPriceUpdate: (data: any) => Promise<any>;
 **23-05-2020**
 Version 0.0.8
 - Add getScreener to broker
-- Optional `startStart`
-- 
+- Optional `startDate`
 
 ## Current implementations
 - [Interactive brokers](https://github.com/stoqey/aurum-broker-ibkr)
