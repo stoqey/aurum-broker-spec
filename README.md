@@ -36,7 +36,7 @@ Features:
 | quoteSymbol       | Get quote                                                                                                                     |
 | getMarketData     | Get historical data                                                                                                           |
 | getPriceUpdate    | Get realtime price updates                                                                                                    |
-
+| getScreener       | Get screener method                                                                                                           |
 ## Broker events
 
 #### **onReady** 
@@ -72,6 +72,12 @@ Streams real-time price updates from any symbols added for watch list
 onPriceUpdate: (data: any) => Promise<any>;
 ``` 
 
+## Changelog
+**23-05-2020**
+Version 0.0.8
+- Add getScreener to broker
+- Optional `startStart`
+- 
 
 ## Current implementations
 - [Interactive brokers](https://github.com/stoqey/aurum-broker-ibkr)

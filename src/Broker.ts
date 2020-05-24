@@ -1,4 +1,4 @@
-import { BrokerAccountSummary, GetSymbolData, Portfolio, SymbolInfo, OpenOrder } from './interfaces';
+import { BrokerAccountSummary, GetSymbolData, Portfolio, SymbolInfo, OpenOrder, MosaicData } from './interfaces';
 
 export interface BrokerEvents {
     // onReady
@@ -34,6 +34,7 @@ export abstract class Broker {
     public abstract quoteSymbol<T>(args: SymbolInfo & T): Promise<SymbolInfo & T>;
     public abstract getMarketData<T>(args: GetSymbolData & T): Promise<any>;
     public abstract getPriceUpdate<T>(args: GetSymbolData & T): Promise<any>;
+    public abstract getScreener(): <T>(args: any) => Promise<MosaicData & T[]>;
 
     public when(event: BrokerEventTypes, response: (data: any) => Promise<any | void | null>): void {
         this.events[event] = response;

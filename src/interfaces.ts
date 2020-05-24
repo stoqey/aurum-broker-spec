@@ -12,9 +12,14 @@ export interface SymbolInfo {
     symbol: string;
     symbolType?: string;
 }
+
 export interface GetSymbolData extends SymbolInfo {
     startDate?: Date;
     endDate?: Date;
+    [x: string]: any;
+}
+
+export interface MosaicData extends SymbolInfo {
     [x: string]: any;
 }
 
