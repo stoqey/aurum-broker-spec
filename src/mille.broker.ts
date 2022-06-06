@@ -2,10 +2,10 @@
 import Broker, { BrokerEventTypes } from "./Broker";
 import {
   BrokerAccountSummary,
+  Contract,
   GetSymbolData,
   OpenOrder,
   Portfolio,
-  SymbolInfo,
 } from "./interfaces";
 
 import { isTest } from "./config";
@@ -26,10 +26,10 @@ export class MilleBroker extends Broker {
   public exitPosition<T>(portfolio: Portfolio & T): Promise<Portfolio & T> {
     throw new Error("Method not implemented.");
   }
-  public searchSymbol<T>(args: SymbolInfo & T): Promise<SymbolInfo & T[]> {
+  public searchSymbol<T>(args: Contract & T): Promise<Contract & T[]> {
     throw new Error("Method not implemented.");
   }
-  public quoteSymbol<T>(args: SymbolInfo & T): Promise<SymbolInfo & T> {
+  public quoteSymbol<T>(args: Contract & T): Promise<Contract & T> {
     throw new Error("Method not implemented.");
   }
   public getMarketData<T>(args: GetSymbolData & T): Promise<any> {
@@ -55,10 +55,6 @@ export class MilleBroker extends Broker {
       // eslint-disable-next-line @typescript-eslint/no-this-alias
       const self = this;
       setInterval(() => {
-        // @deprecated
-        // const onOrders = self.events["onOrders"];
-        // onOrders([order]);
-
         const order = {
           filled: 0,
           remaining: 0,

@@ -1,10 +1,10 @@
 import {
   BrokerAccountSummary,
+  Contract,
   GetSymbolData,
   MosaicData,
   OpenOrder,
   Portfolio,
-  SymbolInfo,
 } from "./interfaces";
 
 import { EventEmitter } from "events";
@@ -28,6 +28,9 @@ export interface BrokerEvents {
 
 export type BrokerEventTypes = keyof BrokerEvents;
 export abstract class Broker extends EventEmitter {
+  portfolios: Portfolio[];
+  orders: OpenOrder[];
+
   constructor() {
     super();
   }
@@ -41,10 +44,8 @@ export abstract class Broker extends EventEmitter {
   public abstract exitPosition<T>(
     portfolio: Portfolio & T
   ): Promise<Portfolio & T>;
-  public abstract searchSymbol<T>(
-    args: SymbolInfo & T
-  ): Promise<SymbolInfo & T[]>;
-  public abstract quoteSymbol<T>(args: SymbolInfo & T): Promise<SymbolInfo & T>;
+  public abstract searchSymbol<T>(args: Contract & T): Promise<Contract & T[]>;
+  public abstract quoteSymbol<T>(args: Contract & T): Promise<Contract & T>;
   public abstract getMarketData<T>(args: GetSymbolData & T): Promise<any>;
   public abstract getPriceUpdate<T>(args: GetSymbolData & T): Promise<any>;
   public abstract getScreener(): <T>(args: any) => Promise<MosaicData & T[]>;
